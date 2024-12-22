@@ -65,7 +65,7 @@ const App = () => {
   const [sortOption, setSortOption] = useState('default') // 정렬 옵션
   const [currentPage, setCurrentPage] = useState(1) // 현재 페이지
   const itemsPerPage = 10 // 페이지당 아이템 수
-  const [resetFilterUI, setResetFilterUI] = useState(null)
+  const [resetFilterUI, setResetFilterUI] = useState(null) // 필터 UI리셋
 
   // Fetch all data
   const fetchAllData = async () => {
