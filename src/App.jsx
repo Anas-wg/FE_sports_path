@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import Filter from './components/Filter'
 import Card from './components/Card'
@@ -6,6 +6,7 @@ import Pagination from './components/Pagination'
 import axios from 'axios'
 import SearchBar from './components/SearchBar'
 import mainIcon from './images/main_logo.png'
+const apikey = import.meta.env.VITE_API_KEY
 
 // 브레이크포인트 설정
 const breakpoints = {
@@ -74,7 +75,7 @@ const App = () => {
 
     while (hasNextPage) {
       try {
-        const response = await axios.get(`https://dev.hufsthon.site/api/programs/?page=${page}`)
+        const response = await axios.get(`${apikey}?page=${page}`)
         allResults = [...allResults, ...response.data.results]
         hasNextPage = !!response.data.next
         page += 1
